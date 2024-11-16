@@ -19,12 +19,14 @@
             <th>Название</th>
             <th>Заказчик</th>
             <th>Статус</th>
+            <th>Разработчиков</th>
         </tr>
         {% for project in projects %}
         <tr>
             <td><a href="/project/{{ project.id }}/edit">{{ project.name }}</a></td>
             <td>{{ project.customer }}</td>
             <td>{{ project.closed ? 'Закрыт' : 'Открыт' }}</td>
+            <td>{{ project.coders|length }}</td>
         </tr>
         {% else %}
             Не добавлено ни одного проекта.
