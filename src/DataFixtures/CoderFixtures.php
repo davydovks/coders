@@ -20,23 +20,23 @@ class CoderFixtures extends Fixture
             ],
             [
                 'name' => 'Казанцев Николай Юрьевич',
-                'position' => 'Senior Javascript Developer',
+                'position' => 'Senior Backend Developer',
                 'email' => 'kazantsev@brotherhood.software',
-                'phone' => '+7 (933) 888-66-66',
+                'phone' => '+7 (933) 866-66-77',
                 'birthdate' => '08.06.1984',
             ],
             [
                 'name' => 'Казеичев Никита Евгеньевич',
-                'position' => 'Senior Python Developer',
+                'position' => 'Senior Frontend Developer',
                 'email' => 'kazeichev@brotherhood.software',
-                'phone' => '+7 (933) 888-66-66',
+                'phone' => '+7 (933) 855-55-77',
                 'birthdate' => '06.08.1995',
             ],
             [
                 'name' => 'Давыдов Константин Сергеевич',
                 'position' => 'Junior PHP Developer',
                 'email' => 'davydov@brotherhood.software',
-                'phone' => '+7 (933) 888-66-66',
+                'phone' => '+7 (906) 844-44-88',
                 'birthdate' => '04.12.1985',
             ],
         ];
