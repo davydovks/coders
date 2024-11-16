@@ -27,6 +27,9 @@ class Project
     #[ORM\ManyToMany(targetEntity: Coder::class, inversedBy: 'projects')]
     private Collection $coders;
 
+    #[ORM\Column]
+    private bool $closed = false;
+
     public function __construct()
     {
         $this->coders = new ArrayCollection();
@@ -81,6 +84,18 @@ class Project
     public function removeCoder(Coder $coder): static
     {
         $this->coders->removeElement($coder);
+
+        return $this;
+    }
+
+    public function isClosed(): bool
+    {
+        return $this->closed;
+    }
+
+    public function setClosed(bool $closed): static
+    {
+        $this->closed = $closed;
 
         return $this;
     }

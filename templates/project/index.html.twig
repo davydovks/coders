@@ -16,11 +16,13 @@
         <tr>
             <th>Название</th>
             <th>Заказчик</th>
+            <th>Статус</th>
         </tr>
         {% for project in projects %}
         <tr>
             <td><a href="/project/{{ project.id }}">{{ project.name }}</a></td>
             <td>{{ project.customer }}</td>
+            <td>{{ project.closed ? 'Закрыт' : 'Открыт' }}</td>
         </tr>
         {% else %}
             Не добавлено ни одного проекта.
