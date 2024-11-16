@@ -22,7 +22,6 @@ class CoderController extends AbstractController
 
     #[Route('/coder/new', name: 'coder_new')]
     public function new(
-        CoderRepository $coderRepository,
         Request $request,
         EntityManagerInterface $entityManager
     ): Response {
@@ -38,7 +37,6 @@ class CoderController extends AbstractController
         }
 
         return $this->render('coder/new.html.twig', [
-            // 'coder' => $coder,
             'form' => $form
         ]);
     }
