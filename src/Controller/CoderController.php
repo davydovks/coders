@@ -20,14 +20,36 @@ class CoderController extends AbstractController
         ]);
     }
 
+    #[Route('/coder/new', name: 'coder_new')]
+    public function new(
+        CoderRepository $coderRepository,
+        Request $request,
+        EntityManagerInterface $entityManager
+    ): Response {
+        $form = $this->createForm(CoderType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $coder = $form->getData();
+            $entityManager->persist($coder);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('coder_index');
+        }
+
+        return $this->render('coder/new.html.twig', [
+            // 'coder' => $coder,
+            'form' => $form
+        ]);
+    }
+
     #[Route('/coder/{id}', name: 'coder_edit')]
     public function edit(
         CoderRepository $coderRepository,
         int $id,
         Request $request,
         EntityManagerInterface $entityManager
-    ): Response
-    {
+    ): Response {
         $coder = $coderRepository->find($id);
         $form = $this->createForm(CoderType::class, $coder);
         $form->handleRequest($request);
