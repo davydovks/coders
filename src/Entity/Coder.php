@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CoderRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CoderRepository::class)]
 class Coder
@@ -14,18 +15,28 @@ class Coder
     #[ORM\Column]
     private ?int $id = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     #[ORM\Column(length: 255)]
     private ?string $position = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Type('string')]
     #[ORM\Column(length: 18)]
     private ?string $phone = null;
 
+    #[Assert\NotBlank]
+    #[Assert\Type(\DateTimeInterface::class)]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $birthdate = null;
 
