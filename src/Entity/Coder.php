@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\CoderRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CoderRepository::class)]
@@ -24,6 +25,9 @@ class Coder
 
     #[ORM\Column(length: 18)]
     private ?string $phone = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE)]
+    private ?\DateTimeInterface $birthdate = null;
 
     public function getId(): ?int
     {
@@ -74,6 +78,18 @@ class Coder
     public function setPhone(string $phone): static
     {
         $this->phone = $phone;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(\DateTimeInterface $birthdate): static
+    {
+        $this->birthdate = $birthdate;
 
         return $this;
     }
