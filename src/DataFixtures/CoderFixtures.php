@@ -41,7 +41,7 @@ class CoderFixtures extends Fixture
             ],
         ];
 
-        foreach ($codersData as $coderData) {
+        foreach ($codersData as $key => $coderData) {
             $coder = new Coder();
             $coder->setName($coderData['name']);
             $coder->setPosition($coderData['position']);
@@ -49,6 +49,7 @@ class CoderFixtures extends Fixture
             $coder->setPhone($coderData['phone']);
             $coder->setBirthdate(new \DateTime($coderData['birthdate']));
             $manager->persist($coder);
+            $this->addReference("coder_{$key}", $coder);
         }
 
         $manager->flush();
