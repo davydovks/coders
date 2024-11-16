@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper { margin: 1em auto; max-width: 1200px; width: 95%; font: 18px/1.5 sans-serif; }
+</style>
+
+<div class="wrapper">
+    <h1>Статистика</h1>
+
+    <p>Всего проектов: {{ projects_count }}</p>
+    <p>Всего разработчиков: {{ coders_count }}</p>
+    <p>Средний возраст сотрудников: {{ average_age|number_format(1) }} лет</p>
+</div>
+{% endblock %}

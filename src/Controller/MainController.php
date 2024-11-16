@@ -15,4 +15,16 @@ class MainController extends AbstractController
     {
         return $this->render('main/index.html.twig');
     }
+
+    #[Route('/stats', name: 'stats')]
+    public function stats(
+        CoderRepository $coderRepository,
+        ProjectRepository $projectRepository
+    ): Response {
+        return $this->render('main/stats.html.twig', [
+            'coders_count' => $coderRepository->count(),
+            'projects_count' => $projectRepository->count(),
+            'average_age' => $coderRepository->avgAge(),
+        ]);
+    }
 }

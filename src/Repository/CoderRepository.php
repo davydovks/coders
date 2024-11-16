@@ -40,4 +40,18 @@ class CoderRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function avgAge(): float
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT AVG(EXTRACT(DAY FROM CURRENT_DATE - birthdate::TIMESTAMP)/365) 
+            FROM coder
+            ';
+
+        $resultSet = $conn->executeQuery($sql);
+
+        return $resultSet->fetchOne();
+    }
 }
