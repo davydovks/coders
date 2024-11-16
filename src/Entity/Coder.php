@@ -122,7 +122,7 @@ class Coder
         return $this;
     }
 
-    public function getFired(): ?bool
+    public function isFired(): bool
     {
         return $this->fired;
     }
