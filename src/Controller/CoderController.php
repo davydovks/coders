@@ -43,7 +43,7 @@ class CoderController extends AbstractController
         ]);
     }
 
-    #[Route('/coder/{id}', name: 'coder_edit')]
+    #[Route('/coder/{id}/edit', name: 'coder_edit')]
     public function edit(
         CoderRepository $coderRepository,
         int $id,
