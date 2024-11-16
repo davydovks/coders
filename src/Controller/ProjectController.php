@@ -20,6 +20,27 @@ class ProjectController extends AbstractController
         ]);
     }
 
+    #[Route('/project/new', name: 'project_new')]
+    public function new(
+        Request $request,
+        EntityManagerInterface $entityManager,
+    ): Response {
+        $form = $this->createForm(projectType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $project = $form->getData();
+            $entityManager->persist($project);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('project_index');
+        }
+
+        return $this->render('project/new.html.twig', [
+            'form' => $form
+        ]);
+    }
+
     #[Route('/project/{id}/edit', name: 'project_edit')]
     public function edit(
         ProjectRepository $projectRepository,
