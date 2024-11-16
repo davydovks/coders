@@ -2,17 +2,18 @@
 
 namespace App\Controller;
 
+use App\Repository\CoderRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 class CoderController extends AbstractController
 {
-    #[Route('/coder', name: 'app_coder')]
-    public function index(): Response
+    #[Route('/coder', name: 'coder_index')]
+    public function index(CoderRepository $coderRepository): Response
     {
         return $this->render('coder/index.html.twig', [
-            'controller_name' => 'CoderController',
+            'coders' => $coderRepository->findAll(),
         ]);
     }
 }
