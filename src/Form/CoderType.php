@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Coder;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -22,6 +23,7 @@ class CoderType extends AbstractType
             ->add('email', EmailType::class, ['label' => 'Email'])
             ->add('phone', TelType::class, ['label' => 'Телефон'])
             ->add('birthdate', DateType::class, ['label' => 'Дата рождения'])
+            ->add('fired', CheckboxType::class, ['label' => 'Уволен', 'required' => false])
             ->add('save', SubmitType::class, ['label' => 'Сохранить'])
         ;
     }

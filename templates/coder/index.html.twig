@@ -18,6 +18,7 @@
             <th>Email</th>
             <th>Телефон</th>
             <th>Дата рождения</th>
+            <th>Уволен</th>
         </tr>
         {% for coder in coders %}
         <tr>
@@ -26,6 +27,7 @@
             <td>{{ coder.email }}</td>
             <td>{{ coder.phone }}</td>
             <td>{{ coder.birthdate|date("d.m.Y") }}</td>
+            <td>{{ coder.fired ? 'Да' : 'Нет' }}</td>
         </tr>
         {% else %}
             Не добавлено ни одного разработчика.

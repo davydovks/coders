@@ -40,6 +40,10 @@ class Coder
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $birthdate = null;
 
+    #[Assert\Type('boolean')]
+    #[ORM\Column]
+    private bool $fired = false;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -101,6 +105,18 @@ class Coder
     public function setBirthdate(\DateTimeInterface $birthdate): static
     {
         $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getFired(): ?bool
+    {
+        return $this->fired;
+    }
+
+    public function setFired(bool $fired): static
+    {
+        $this->fired = $fired;
 
         return $this;
     }
