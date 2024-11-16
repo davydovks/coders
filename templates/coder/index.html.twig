@@ -21,6 +21,7 @@
             <th>Телефон</th>
             <th>Дата рождения</th>
             <th>Уволен</th>
+            <th>Проектов</th>
         </tr>
         {% for coder in coders %}
         <tr>
@@ -30,6 +31,7 @@
             <td>{{ coder.phone }}</td>
             <td>{{ coder.birthdate|date("d.m.Y") }}</td>
             <td>{{ coder.fired ? 'Да' : 'Нет' }}</td>
+            <td>{{ coder.projects|length }}</td>
         </tr>
         {% else %}
             Не добавлено ни одного разработчика.
