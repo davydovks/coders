@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block body %}
+<style>
+    .wrapper { margin: 1em auto; max-width: 1200px; width: 95%; font: 18px/1.5 sans-serif; }
+    td { text-align: center; }
+    #project label { display: block; }
+</style>
+
+<div class="wrapper">
+    <h1><a href="/project">Проекты</a> - {{ project.name }}</h1>
+
+    {{ form(form) }}
+</div>
+{% endblock %}
