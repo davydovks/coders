@@ -23,9 +23,10 @@
             <td>{{ project.closed ? 'Закрыт' : 'Открыт' }}</td>
             <td>{{ project.coders|length }}</td>
         </tr>
-        {% else %}
-            Не добавлено ни одного проекта.
         {% endfor %}
     </table>
+    {% if projects|length == 0 %}
+    <p class="center">Не добавлено ни одного проекта</p>
+    {% endif %}
 </div>
 {% endblock %}

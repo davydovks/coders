@@ -29,9 +29,10 @@
             <td>{{ coder.fired ? 'Да' : 'Нет' }}</td>
             <td>{{ coder.projects|length }}</td>
         </tr>
-        {% else %}
-            Не добавлено ни одного разработчика.
         {% endfor %}
     </table>
+    {% if coders|length == 0 %}
+    <p class="center">Не добавлено ни одного разработчика</p>
+    {% endif %}
 </div>
 {% endblock %}
