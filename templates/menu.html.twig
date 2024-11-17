@@ -1,0 +1,7 @@
+{% set current = current ?? '' %}
+<ul class="navigation">
+    <li {{ current == 'home' ? 'class="active"' }}><a href="/">Главная</a></li>
+    <li {{ current == 'coder' ? 'class="active"' }}><a href="/coder">Разработчики</a></li>
+    <li {{ current == 'project' ? 'class="active"' }}><a href="/project">Проекты</a></li>
+    <li {{ current == 'stats' ? 'class="active"' }}><a href="/stats">Статистика</a></li>
+</ul>

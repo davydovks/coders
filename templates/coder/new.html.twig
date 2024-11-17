@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="wrapper">
+    {% include "menu.html.twig" with {'current': 'coder'} %}
     <h1><a href="/coder">Разработчики</a> - Добавить</h1>
 
     {{ form(form) }}

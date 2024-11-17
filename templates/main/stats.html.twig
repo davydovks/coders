@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="wrapper">
+    {% include "menu.html.twig" with {'current': 'stats'} %}
     <h1>Статистика</h1>
 
     <p>Всего проектов: {{ projects_count }}</p>

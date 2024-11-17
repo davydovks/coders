@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="wrapper">
+    {% include "menu.html.twig" with {'current': 'home'} %}
     <h1>Добро пожаловать!</h1>
 
     <p><a href="/coder">Разработчики</a></p>

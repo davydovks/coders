@@ -4,6 +4,7 @@
 
 {% block body %}
 <div class="wrapper">
+    {% include "menu.html.twig" with {'current': 'project'} %}
     <h1><a href="/project">Проекты</a> - {{ project.name }}</h1>
 
     {{ form(form) }}
