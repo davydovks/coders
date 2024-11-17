@@ -25,6 +25,7 @@ class ProjectType extends AbstractType
                 'class' => Coder::class,
                 'choice_label' => 'name',
                 'multiple' => true,
+                'required' => false,
             ])
             ->add('save', SubmitType::class, ['label' => 'Сохранить'])
         ;
