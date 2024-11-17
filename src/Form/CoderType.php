@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\Coder;
 use App\Entity\Project;
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -29,6 +31,11 @@ class CoderType extends AbstractType
             ->add('projects', EntityType::class, [
                 'label' => 'Проекты',
                 'class' => Project::class,
+                'query_builder' => function (EntityRepository $er): QueryBuilder {
+                    return $er->createQueryBuilder('p')
+                        ->where('p.closed = FALSE')
+                        ->orderBy('p.id', 'ASC');
+                },
                 'choice_label' => 'name',
                 'multiple' => true,
                 'required' => false,
