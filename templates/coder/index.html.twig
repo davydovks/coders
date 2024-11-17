@@ -27,7 +27,7 @@
             <td>{{ coder.phone }}</td>
             <td>{{ coder.birthdate|date("d.m.Y") }}</td>
             <td>{{ coder.fired ? 'Да' : 'Нет' }}</td>
-            <td>{{ coder.projects|length }}</td>
+            <td>{{ coder.projects|filter(p => p in activeProjects)|length }}</td>
         </tr>
         {% endfor %}
     </table>

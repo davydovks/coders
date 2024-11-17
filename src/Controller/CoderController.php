@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\CoderType;
 use App\Repository\CoderRepository;
+use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -13,10 +14,13 @@ use Symfony\Component\Routing\Attribute\Route;
 class CoderController extends AbstractController
 {
     #[Route('/coder', name: 'coder_index')]
-    public function index(CoderRepository $coderRepository): Response
-    {
+    public function index(
+        CoderRepository $coderRepository,
+        ProjectRepository $projectRepository,
+    ): Response {
         return $this->render('coder/index.html.twig', [
             'coders' => $coderRepository->findAll(),
+            'activeProjects' => $projectRepository->findAllActive(),
         ]);
     }
 
