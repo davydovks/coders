@@ -16,30 +16,14 @@ class CoderRepository extends ServiceEntityRepository
         parent::__construct($registry, Coder::class);
     }
 
-    //    /**
-    //     * @return Coder[] Returns an array of Coder objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('c.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?Coder
-    //    {
-    //        return $this->createQueryBuilder('c')
-    //            ->andWhere('c.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findAllActive(): array
+    {
+        return $this->createQueryBuilder('c')
+            ->andWhere('c.fired = FALSE')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
 
     public function avgAge(): float
     {

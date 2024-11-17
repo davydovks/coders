@@ -21,7 +21,7 @@
             <td><a href="/project/{{ project.id }}/edit">{{ project.name }}</a></td>
             <td>{{ project.customer }}</td>
             <td>{{ project.closed ? 'Закрыт' : 'Открыт' }}</td>
-            <td>{{ project.coders|length }}</td>
+            <td>{{ project.coders|filter(c => c in activeCoders)|length }}</td>
         </tr>
         {% endfor %}
     </table>
