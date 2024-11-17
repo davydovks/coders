@@ -1,12 +1,24 @@
 .wrapper {
     margin: 1em auto;
-    max-width: 1200px;
+    max-width: 1400px;
     width: 95%;
     font: 18px/1.5 sans-serif;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background: #f1f1f1;
+    padding: 8px;
+}
+
 td {
     text-align: center;
+    border: 1px solid #f1f1f1;
+    padding: 8px;
 }
 
 #coder label,
