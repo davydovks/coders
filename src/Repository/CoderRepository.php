@@ -48,6 +48,7 @@ class CoderRepository extends ServiceEntityRepository
         $sql = '
             SELECT AVG(EXTRACT(DAY FROM CURRENT_DATE - birthdate::TIMESTAMP)/365) 
             FROM coder
+            WHERE fired = FALSE
             ';
 
         $resultSet = $conn->executeQuery($sql);
