@@ -5,6 +5,19 @@
     font: 18px/1.5 sans-serif;
 }
 
+.button {
+    display: inline-block;
+    background: #555;
+    color: white;
+    margin-bottom: 16px;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.button:hover {
+    background: #999;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
